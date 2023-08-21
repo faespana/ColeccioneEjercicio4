@@ -1,6 +1,6 @@
 package peliculaapp.entities;
 
-public class Pelicula {
+public class Pelicula implements Comparable<Pelicula> {
     private String titulo;
     private String director;
     private double duracion;
@@ -41,5 +41,13 @@ public class Pelicula {
     @Override
     public String toString() {
         return "Pelicula{" + "titulo=" + titulo + ", director=" + director + ", duracion=" + duracion + '}';
+    }
+
+    @Override
+    public int compareTo(Pelicula other) {
+        return (int) (other.duracion - this.duracion);
+        //Si yo vengo antes que la otra, retorno un negativo
+        //Si yo voy despues que la otra, retorno un positivo
+        //Si somos iguales, retorno un cero
     }
 }
